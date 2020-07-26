@@ -1,0 +1,19 @@
+.container{min-height:600px;}
+.footer-custom{
+	margin-top: 5%;
+    padding: 1.5rem 1rem;
+	color:#fff;
+}
+#mainFrame{
+	
+	border-style: none; 
+	width: 100%; 
+	margin-top: 85px;
+}
+.car-card{ height: 200px;}
+.form-group .col-form-label:after{
+            content: " *";
+            color: red;
+        }
+.text-info span {color: red;}
+header{margin-bottom: 7%;}

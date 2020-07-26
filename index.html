@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8">-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+    <title>Hertz-UTS</title>
+
+    <script language="javascript" type="text/javascript">
+        function resizeIframe(iframe) {
+            iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+        }
+    </script>
+	<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<!-- Vue.js library-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	
+
+
+</head>
+<body onload="getCars();">
+<header>
+<nav class="navbar fixed-top navbar-dark bg-dark">
+    <a href="index.html" class="navbar-brand mb-0 h1"><img src="images/logo.png" class="img logo" > </a>
+	<a href="index.html" class="navbar-brand mb-0 h1">Car Rental Center</a>
+    <a href="reservation.php" target="mainFrame" class="btn btn-primary my-2 my-sm-0">Car Reservation</a>
+</nav>
+</header>
+
+<div class="container">
+    
+    <div id="carsDIV" class="row mt-3">
+        <div class="col-md-3 mb-3" v-for="car in cars">
+            <div class="card">
+                <img v-bind:src="'images/'+car.Model+'.jpg'" class="card-img-top img-fluid car-card" >
+                <div class="card-body" style="padding-top: 0px; padding-bottom: 0px;">
+                    <h5 class="card-title">{{car.Brand}}-{{car.Model}}-{{car.ModelYear}}</h5>
+                    <ul class="list-unstyled">
+                        <li class="card-text"><b>mileage: </b>{{car.Mileage}}</li>
+                        <li class="card-text"><b>fuel_type: </b>{{car.FuelType}}</li>
+                        <li class="card-text"><b>seats: </b>{{car.Seats}}</li>
+                        <li class="card-text"><b>price_per_day: </b>${{car.PricePerDay}}</li>
+                        <li class="card-text"><b>availability: </b>{{car.Availability}}</li>
+                        <li class="card-text"><b>description: </b>{{car.Description}}</li>
+                    </ul>
+                </div>
+                <a href="#" v-on:click="addToCart(car.id);" class="btn btn-primary">Add to Cart</a></div>
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript" src="car_booking.js"></script>
+<footer class="footer-dark bg-dark footer-custom" >	
+		
+         <strong>Copyright &copy; 2020 .</strong>
+         All rights reserved.
+     
+		</footer>	
+
+</body>
+</html>
